@@ -27,10 +27,19 @@ def initialize_appending_path_notebook(root_path: str = "DepthBLIP-2"):
             break
 # ==========================INIT PATH==========================
 initialize_appending_path_notebook()
+# Insert project root at front of sys.path so local `datasets/` folder
+# takes priority over the HuggingFace `datasets` package.
+_project_root = str(Path(__file__).resolve().parent)
+if _project_root not in sys.path:
+    sys.path.insert(0, _project_root)
+elif sys.path[0] != _project_root:
+    sys.path.remove(_project_root)
+    sys.path.insert(0, _project_root)
+
 from blip2_extractor import load_model_and_preprocess
 from datasets.datasets_list import AllDataset
 from models.model import DepthBLIP
-from utils.calculate_error import compute_errors_KITTI, compute_errors_NYU
+from utils.calculate_error import compute_errors_KITTI, compute_errors_NYU, compute_errors_B3DO, compute_errors_SUN3D
 from utils.logger import AverageMeter
 from utils.loss import CustomLoss
 
@@ -64,6 +73,7 @@ parser.add_argument('--width', type=int, default=544)
 
 # Model setting
 parser.add_argument('--max_depth', default=80.0, type=float, metavar='MaxVal', help='max value of depth')
+parser.add_argument('--depth_scale', default=256.0, type=float, help='depth scale divisor (256 KITTI/B3DO, 10000 SUN3D)')
 parser.add_argument('--method', default='second', type=str, help=''
                                                                  'first: BLIP-2, '
                                                                  'second: InstructBLIP')
@@ -186,6 +196,10 @@ def validate(model, val_loader, args, epoch):
         error_names = ['abs_diff', 'sq_rel', 'a1', 'a2', 'a3', 'abs_rel', 'rmse', 'rmse_log']
     elif args.dataset == 'NYU':
         error_names = ['abs_diff', 'a1', 'a2', 'a3', 'abs_rel', 'log10', 'rmse']
+    elif args.dataset == 'B3DO':
+        error_names = ['abs_diff', 'a1', 'a2', 'a3', 'abs_rel', 'log10', 'rmse']
+    elif args.dataset == 'SUN3D':
+        error_names = ['abs_diff', 'a1', 'a2', 'a3', 'abs_rel', 'log10', 'rmse']
     elif args.dataset == 'Make3D':
         error_names = ['abs_diff', 'abs_rel', 'ave_log10', 'rmse']
 
@@ -213,6 +227,10 @@ def validate(model, val_loader, args, epoch):
             err_result = compute_errors_KITTI(preprocess_gt_img, output_depth, crop=True)
         elif args.dataset == 'NYU':
             err_result = compute_errors_NYU(preprocess_gt_img, output_depth, crop=True)
+        elif args.dataset == 'B3DO':
+            err_result = compute_errors_B3DO(preprocess_gt_img, output_depth, cap=args.max_depth)
+        elif args.dataset == 'SUN3D':
+            err_result = compute_errors_SUN3D(preprocess_gt_img, output_depth, cap=args.max_depth)
         errors.update(err_result)
         # print error
         val_error_dict = {name: error for name, error in
@@ -227,6 +245,10 @@ def testing(model, val_loader, args):
     if args.dataset == 'KITTI':
         error_names = ['abs_diff', 'sq_rel', 'a1', 'a2', 'a3', 'abs_rel', 'rmse', 'rmse_log']
     elif args.dataset == 'NYU':
+        error_names = ['abs_diff', 'a1', 'a2', 'a3', 'abs_rel', 'log10', 'rmse']
+    elif args.dataset == 'B3DO':
+        error_names = ['abs_diff', 'a1', 'a2', 'a3', 'abs_rel', 'log10', 'rmse']
+    elif args.dataset == 'SUN3D':
         error_names = ['abs_diff', 'a1', 'a2', 'a3', 'abs_rel', 'log10', 'rmse']
     elif args.dataset == 'Make3D':
         error_names = ['abs_diff', 'abs_rel', 'ave_log10', 'rmse']
@@ -258,6 +280,10 @@ def testing(model, val_loader, args):
             err_result = compute_errors_KITTI(preprocess_gt_img, output_depth, crop=True)
         elif args.dataset == 'NYU':
             err_result = compute_errors_NYU(preprocess_gt_img, output_depth, crop=True)
+        elif args.dataset == 'B3DO':
+            err_result = compute_errors_B3DO(preprocess_gt_img, output_depth, cap=args.max_depth)
+        elif args.dataset == 'SUN3D':
+            err_result = compute_errors_SUN3D(preprocess_gt_img, output_depth, cap=args.max_depth)
         errors.update(err_result)
         # print frequency
         if i % args.print_freq == 0:
@@ -281,7 +307,8 @@ def main():
     torch.manual_seed(args.seed)
 
     ######################  Pretraining model loading part  ##########################
-    device = torch.device(f"cuda:{args.gpu_num}") if torch.cuda.is_available() else "cpu"
+    primary_gpu = args.gpu_num.split(',')[0]
+    device = torch.device(f"cuda:{primary_gpu}") if torch.cuda.is_available() else "cpu"
     print(device)
     # model type choice: blip-2/InstructBLIP
     name = 'depth_blip2_opt' if args.method == 'first' else 'depth_blip2_vicuna_instruct'
@@ -297,6 +324,14 @@ def main():
         args.temperature = 0.1 if args.method == 'first' else 0.8
         args.max_depth = 80.0
     elif args.dataset == 'NYU':
+        args.temperature = 2.4 if args.method == 'first' else 0.5
+        args.max_depth = 10.0
+    elif args.dataset == 'B3DO':
+        # Indoor Kinect dataset — same config as NYU/SUN3D
+        args.temperature = 2.4 if args.method == 'first' else 0.5
+        args.max_depth = 10.0
+    elif args.dataset == 'SUN3D':
+        # Indoor dataset - use NYU-like temperature and depth range
         args.temperature = 2.4 if args.method == 'first' else 0.5
         args.max_depth = 10.0
     print("==> Mode: ", "Training" if args.train == True else "Testing")

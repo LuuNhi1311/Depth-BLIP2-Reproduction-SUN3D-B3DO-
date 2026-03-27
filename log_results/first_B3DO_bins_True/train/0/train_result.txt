@@ -1,0 +1,201 @@
+
+
+------------epoch 0------------
+training: Abs diff loss: 0.598, RMSE loss: 0.683, lr: 0.001
+valid: abs_diff: 0.571, a1: 0.309, a2: 0.607, a3: 0.777, abs_rel: 0.709, log10: 0.207, rmse: 0.650
+
+------------epoch 1------------
+training: Abs diff loss: 0.519, RMSE loss: 0.602, lr: 0.001
+valid: abs_diff: 0.493, a1: 0.401, a2: 0.604, a3: 0.749, abs_rel: 0.522, log10: 0.183, rmse: 0.592
+
+------------epoch 2------------
+training: Abs diff loss: 0.434, RMSE loss: 0.542, lr: 0.001
+valid: abs_diff: 0.520, a1: 0.332, a2: 0.570, a3: 0.676, abs_rel: 0.462, log10: 0.194, rmse: 0.616
+
+------------epoch 3------------
+training: Abs diff loss: 0.418, RMSE loss: 0.524, lr: 0.001
+valid: abs_diff: 0.525, a1: 0.318, a2: 0.563, a3: 0.680, abs_rel: 0.460, log10: 0.196, rmse: 0.621
+
+------------epoch 4------------
+training: Abs diff loss: 0.418, RMSE loss: 0.539, lr: 0.001
+valid: abs_diff: 0.525, a1: 0.318, a2: 0.563, a3: 0.681, abs_rel: 0.459, log10: 0.196, rmse: 0.622
+
+------------epoch 5------------
+training: Abs diff loss: 0.418, RMSE loss: 0.531, lr: 0.001
+valid: abs_diff: 0.525, a1: 0.318, a2: 0.562, a3: 0.681, abs_rel: 0.459, log10: 0.196, rmse: 0.622
+
+------------epoch 6------------
+training: Abs diff loss: 0.417, RMSE loss: 0.533, lr: 0.001
+valid: abs_diff: 0.525, a1: 0.318, a2: 0.562, a3: 0.681, abs_rel: 0.459, log10: 0.196, rmse: 0.622
+
+------------epoch 7------------
+training: Abs diff loss: 0.414, RMSE loss: 0.537, lr: 0.001
+valid: abs_diff: 0.525, a1: 0.318, a2: 0.562, a3: 0.681, abs_rel: 0.459, log10: 0.196, rmse: 0.622
+
+------------epoch 8------------
+training: Abs diff loss: 0.421, RMSE loss: 0.527, lr: 0.001
+valid: abs_diff: 0.524, a1: 0.321, a2: 0.565, a3: 0.679, abs_rel: 0.460, log10: 0.195, rmse: 0.620
+
+------------epoch 9------------
+training: Abs diff loss: 0.413, RMSE loss: 0.537, lr: 0.001
+valid: abs_diff: 0.517, a1: 0.339, a2: 0.574, a3: 0.676, abs_rel: 0.464, log10: 0.192, rmse: 0.613
+
+------------epoch 10------------
+training: Abs diff loss: 0.421, RMSE loss: 0.533, lr: 0.001
+valid: abs_diff: 0.506, a1: 0.359, a2: 0.589, a3: 0.682, abs_rel: 0.474, log10: 0.188, rmse: 0.603
+
+------------epoch 11------------
+training: Abs diff loss: 0.416, RMSE loss: 0.524, lr: 0.001
+valid: abs_diff: 0.502, a1: 0.365, a2: 0.591, a3: 0.686, abs_rel: 0.476, log10: 0.186, rmse: 0.600
+
+------------epoch 12------------
+training: Abs diff loss: 0.415, RMSE loss: 0.515, lr: 0.001
+valid: abs_diff: 0.503, a1: 0.364, a2: 0.591, a3: 0.685, abs_rel: 0.477, log10: 0.187, rmse: 0.601
+
+------------epoch 13------------
+training: Abs diff loss: 0.420, RMSE loss: 0.526, lr: 0.001
+valid: abs_diff: 0.507, a1: 0.357, a2: 0.587, a3: 0.681, abs_rel: 0.471, log10: 0.188, rmse: 0.604
+
+------------epoch 14------------
+training: Abs diff loss: 0.422, RMSE loss: 0.520, lr: 0.001
+valid: abs_diff: 0.508, a1: 0.354, a2: 0.586, a3: 0.680, abs_rel: 0.471, log10: 0.189, rmse: 0.606
+
+------------epoch 15------------
+training: Abs diff loss: 0.418, RMSE loss: 0.533, lr: 0.001
+valid: abs_diff: 0.509, a1: 0.352, a2: 0.584, a3: 0.679, abs_rel: 0.470, log10: 0.189, rmse: 0.606
+
+------------epoch 16------------
+training: Abs diff loss: 0.416, RMSE loss: 0.521, lr: 0.001
+valid: abs_diff: 0.507, a1: 0.357, a2: 0.587, a3: 0.681, abs_rel: 0.472, log10: 0.188, rmse: 0.605
+
+------------epoch 17------------
+training: Abs diff loss: 0.415, RMSE loss: 0.524, lr: 0.001
+valid: abs_diff: 0.501, a1: 0.367, a2: 0.594, a3: 0.689, abs_rel: 0.481, log10: 0.186, rmse: 0.599
+
+------------epoch 18------------
+training: Abs diff loss: 0.418, RMSE loss: 0.529, lr: 0.001
+valid: abs_diff: 0.497, a1: 0.374, a2: 0.599, a3: 0.699, abs_rel: 0.491, log10: 0.184, rmse: 0.597
+
+------------epoch 19------------
+training: Abs diff loss: 0.417, RMSE loss: 0.524, lr: 0.001
+valid: abs_diff: 0.500, a1: 0.369, a2: 0.595, a3: 0.691, abs_rel: 0.484, log10: 0.186, rmse: 0.599
+
+------------epoch 20------------
+training: Abs diff loss: 0.417, RMSE loss: 0.510, lr: 0.000
+valid: abs_diff: 0.499, a1: 0.369, a2: 0.595, a3: 0.690, abs_rel: 0.483, log10: 0.185, rmse: 0.598
+
+------------epoch 21------------
+training: Abs diff loss: 0.420, RMSE loss: 0.530, lr: 0.000
+valid: abs_diff: 0.500, a1: 0.368, a2: 0.595, a3: 0.690, abs_rel: 0.483, log10: 0.186, rmse: 0.599
+
+------------epoch 22------------
+training: Abs diff loss: 0.419, RMSE loss: 0.521, lr: 0.000
+valid: abs_diff: 0.501, a1: 0.368, a2: 0.593, a3: 0.689, abs_rel: 0.482, log10: 0.186, rmse: 0.600
+
+------------epoch 23------------
+training: Abs diff loss: 0.416, RMSE loss: 0.526, lr: 0.000
+valid: abs_diff: 0.501, a1: 0.368, a2: 0.593, a3: 0.689, abs_rel: 0.481, log10: 0.186, rmse: 0.599
+
+------------epoch 24------------
+training: Abs diff loss: 0.417, RMSE loss: 0.519, lr: 0.000
+valid: abs_diff: 0.500, a1: 0.368, a2: 0.593, a3: 0.687, abs_rel: 0.480, log10: 0.186, rmse: 0.599
+
+------------epoch 25------------
+training: Abs diff loss: 0.418, RMSE loss: 0.509, lr: 0.000
+valid: abs_diff: 0.501, a1: 0.368, a2: 0.593, a3: 0.687, abs_rel: 0.479, log10: 0.186, rmse: 0.599
+
+------------epoch 26------------
+training: Abs diff loss: 0.415, RMSE loss: 0.516, lr: 0.000
+valid: abs_diff: 0.503, a1: 0.365, a2: 0.592, a3: 0.686, abs_rel: 0.480, log10: 0.187, rmse: 0.601
+
+------------epoch 27------------
+training: Abs diff loss: 0.417, RMSE loss: 0.518, lr: 0.000
+valid: abs_diff: 0.502, a1: 0.366, a2: 0.592, a3: 0.687, abs_rel: 0.479, log10: 0.186, rmse: 0.600
+
+------------epoch 28------------
+training: Abs diff loss: 0.419, RMSE loss: 0.519, lr: 0.000
+valid: abs_diff: 0.502, a1: 0.366, a2: 0.592, a3: 0.687, abs_rel: 0.477, log10: 0.186, rmse: 0.600
+
+------------epoch 29------------
+training: Abs diff loss: 0.416, RMSE loss: 0.514, lr: 0.000
+valid: abs_diff: 0.502, a1: 0.368, a2: 0.592, a3: 0.686, abs_rel: 0.476, log10: 0.186, rmse: 0.600
+
+------------epoch 30------------
+training: Abs diff loss: 0.418, RMSE loss: 0.519, lr: 0.000
+valid: abs_diff: 0.501, a1: 0.367, a2: 0.593, a3: 0.686, abs_rel: 0.477, log10: 0.186, rmse: 0.600
+
+------------epoch 31------------
+training: Abs diff loss: 0.415, RMSE loss: 0.526, lr: 0.000
+valid: abs_diff: 0.503, a1: 0.367, a2: 0.593, a3: 0.687, abs_rel: 0.479, log10: 0.187, rmse: 0.600
+
+------------epoch 32------------
+training: Abs diff loss: 0.419, RMSE loss: 0.526, lr: 0.000
+valid: abs_diff: 0.501, a1: 0.368, a2: 0.592, a3: 0.687, abs_rel: 0.477, log10: 0.186, rmse: 0.599
+
+------------epoch 33------------
+training: Abs diff loss: 0.414, RMSE loss: 0.527, lr: 0.000
+valid: abs_diff: 0.502, a1: 0.365, a2: 0.592, a3: 0.687, abs_rel: 0.479, log10: 0.187, rmse: 0.601
+
+------------epoch 34------------
+training: Abs diff loss: 0.410, RMSE loss: 0.517, lr: 0.000
+valid: abs_diff: 0.503, a1: 0.364, a2: 0.591, a3: 0.685, abs_rel: 0.477, log10: 0.187, rmse: 0.601
+
+------------epoch 35------------
+training: Abs diff loss: 0.415, RMSE loss: 0.528, lr: 0.000
+valid: abs_diff: 0.503, a1: 0.364, a2: 0.592, a3: 0.686, abs_rel: 0.478, log10: 0.187, rmse: 0.601
+
+------------epoch 36------------
+training: Abs diff loss: 0.416, RMSE loss: 0.517, lr: 0.000
+valid: abs_diff: 0.501, a1: 0.366, a2: 0.592, a3: 0.687, abs_rel: 0.477, log10: 0.186, rmse: 0.600
+
+------------epoch 37------------
+training: Abs diff loss: 0.416, RMSE loss: 0.522, lr: 0.000
+valid: abs_diff: 0.502, a1: 0.363, a2: 0.591, a3: 0.686, abs_rel: 0.477, log10: 0.186, rmse: 0.601
+
+------------epoch 38------------
+training: Abs diff loss: 0.410, RMSE loss: 0.529, lr: 0.000
+valid: abs_diff: 0.502, a1: 0.364, a2: 0.591, a3: 0.687, abs_rel: 0.479, log10: 0.187, rmse: 0.601
+
+------------epoch 39------------
+training: Abs diff loss: 0.421, RMSE loss: 0.518, lr: 0.000
+valid: abs_diff: 0.501, a1: 0.365, a2: 0.591, a3: 0.687, abs_rel: 0.477, log10: 0.186, rmse: 0.599
+
+------------epoch 40------------
+training: Abs diff loss: 0.416, RMSE loss: 0.512, lr: 0.000
+valid: abs_diff: 0.503, a1: 0.365, a2: 0.592, a3: 0.686, abs_rel: 0.478, log10: 0.187, rmse: 0.601
+
+------------epoch 41------------
+training: Abs diff loss: 0.421, RMSE loss: 0.521, lr: 0.000
+valid: abs_diff: 0.502, a1: 0.365, a2: 0.592, a3: 0.686, abs_rel: 0.478, log10: 0.186, rmse: 0.600
+
+------------epoch 42------------
+training: Abs diff loss: 0.413, RMSE loss: 0.513, lr: 0.000
+valid: abs_diff: 0.502, a1: 0.366, a2: 0.592, a3: 0.687, abs_rel: 0.478, log10: 0.186, rmse: 0.600
+
+------------epoch 43------------
+training: Abs diff loss: 0.415, RMSE loss: 0.523, lr: 0.000
+valid: abs_diff: 0.502, a1: 0.366, a2: 0.592, a3: 0.686, abs_rel: 0.477, log10: 0.186, rmse: 0.601
+
+------------epoch 44------------
+training: Abs diff loss: 0.417, RMSE loss: 0.524, lr: 0.000
+valid: abs_diff: 0.502, a1: 0.365, a2: 0.592, a3: 0.686, abs_rel: 0.478, log10: 0.186, rmse: 0.600
+
+------------epoch 45------------
+training: Abs diff loss: 0.413, RMSE loss: 0.523, lr: 0.000
+valid: abs_diff: 0.502, a1: 0.365, a2: 0.592, a3: 0.686, abs_rel: 0.478, log10: 0.187, rmse: 0.600
+
+------------epoch 46------------
+training: Abs diff loss: 0.416, RMSE loss: 0.523, lr: 0.000
+valid: abs_diff: 0.503, a1: 0.364, a2: 0.592, a3: 0.685, abs_rel: 0.478, log10: 0.187, rmse: 0.601
+
+------------epoch 47------------
+training: Abs diff loss: 0.416, RMSE loss: 0.518, lr: 0.000
+valid: abs_diff: 0.502, a1: 0.365, a2: 0.592, a3: 0.686, abs_rel: 0.478, log10: 0.187, rmse: 0.601
+
+------------epoch 48------------
+training: Abs diff loss: 0.417, RMSE loss: 0.519, lr: 0.000
+valid: abs_diff: 0.501, a1: 0.366, a2: 0.592, a3: 0.686, abs_rel: 0.477, log10: 0.186, rmse: 0.599
+
+------------epoch 49------------
+training: Abs diff loss: 0.418, RMSE loss: 0.527, lr: 0.000
+valid: abs_diff: 0.502, a1: 0.364, a2: 0.591, a3: 0.686, abs_rel: 0.478, log10: 0.186, rmse: 0.600

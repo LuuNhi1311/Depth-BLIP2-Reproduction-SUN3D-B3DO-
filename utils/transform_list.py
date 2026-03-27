@@ -6,6 +6,7 @@ import scipy
 import scipy.ndimage
 import numbers
 import collections
+import collections.abc
 from itertools import permutations
 from PIL import Image
 
@@ -48,8 +49,8 @@ class EnhancedCompose(object):
 
     def __call__(self, img):
         for t in self.transforms:
-            if isinstance(t, collections.Sequence):
-                assert isinstance(img, collections.Sequence) and len(img) == len(
+            if isinstance(t, collections.abc.Sequence):
+                assert isinstance(img, collections.abc.Sequence) and len(img) == len(
                     t), "size of image group and transform group does not fit"
                 tmp_ = []
                 for i, im_ in enumerate(img):
@@ -75,7 +76,7 @@ class Merge(object):
         self.axis = axis
 
     def __call__(self, images):
-        if isinstance(images, collections.Sequence) or isinstance(images, np.ndarray):
+        if isinstance(images, collections.abc.Sequence) or isinstance(images, np.ndarray):
             assert all([isinstance(i, np.ndarray)
                         for i in images]), 'only numpy array is supported'
             shapes = [list(i.shape) for i in images]
@@ -414,10 +415,10 @@ class Split(object):
     """
 
     def __init__(self, *slices, **kwargs):
-        assert isinstance(slices, collections.Sequence)
+        assert isinstance(slices, collections.abc.Sequence)
         slices_ = []
         for s in slices:
-            if isinstance(s, collections.Sequence):
+            if isinstance(s, collections.abc.Sequence):
                 slices_.append(slice(*s))
             else:
                 slices_.append(s)

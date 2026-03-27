@@ -1,0 +1,36 @@
+./datasets/NYU
+# dataset
+data/
+datasets/
+*.jpg
+*.png
+
+# model
+*.pt
+*.pth
+checkpoints/
+
+# output
+outputs/
+logs/
+results/
+
+# env
+.venv/# dataset
+data/
+datasets/
+*.jpg
+*.png
+
+# model
+*.pt
+*.pth
+checkpoints/
+
+# output
+outputs/
+logs/
+results/
+
+# env
+.venv/

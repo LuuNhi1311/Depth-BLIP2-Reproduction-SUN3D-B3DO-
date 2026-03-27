@@ -68,5 +68,32 @@ class CustomLoss(nn.Module):
                 'abs_diff_loss': abs_diff_loss,
                 'rmse_loss': rmse_loss
             }
+        elif self.dataset == 'B3DO':
+            # Indoor loss (Kinect, like NYU): pred and gt same spatial size, cap=10m
+            valid = (gt < 10.0) & (gt > 1e-3) & (pred > 1e-3)
+            valid_gt = gt[valid]
+            valid_pred = pred[valid]
+            rmse_loss = torch.sqrt(torch.mean((valid_gt - valid_pred) ** 2))
+            abs_diff_loss = torch.mean(torch.abs(valid_gt - valid_pred))
+            total_loss = self.alpha * abs_diff_loss + (1 - self.alpha) * rmse_loss
+            return {
+                'total_loss': total_loss,
+                'abs_diff_loss': abs_diff_loss,
+                'rmse_loss': rmse_loss
+            }
+
+        elif self.dataset == 'SUN3D':
+            # Indoor loss (like NYU): pred and gt are same spatial size, cap=10m
+            valid = (gt < 10.0) & (gt > 1e-3) & (pred > 1e-3)
+            valid_gt = gt[valid]
+            valid_pred = pred[valid]
+            rmse_loss = torch.sqrt(torch.mean((valid_gt - valid_pred) ** 2))
+            abs_diff_loss = torch.mean(torch.abs(valid_gt - valid_pred))
+            total_loss = self.alpha * abs_diff_loss + (1 - self.alpha) * rmse_loss
+            return {
+                'total_loss': total_loss,
+                'abs_diff_loss': abs_diff_loss,
+                'rmse_loss': rmse_loss
+            }
         else:
             raise ValueError(f"Unsupported dataset: {self.dataset}")

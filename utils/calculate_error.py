@@ -1,6 +1,36 @@
 import torch
 
 
+def compute_errors_B3DO(gt, pred, cap=10.0):
+    """Indoor depth metrics for B3DO (Berkeley 3-D Object, Kinect, NYU-style).
+
+    pred must already be interpolated to match gt spatial size.
+    Both tensors: (batch, 1, H, W).
+    Returns: [abs_diff, a1, a2, a3, abs_rel, log10, rmse]
+    """
+    abs_diff, abs_rel, log10, a1, a2, a3, rmse_tot = 0, 0, 0, 0, 0, 0, 0
+    batch_size = gt.size(0)
+
+    for current_gt, current_pred in zip(gt, pred):
+        current_gt   = current_gt[0]    # (H, W)
+        current_pred = current_pred[0]  # (H, W)
+
+        valid    = (current_gt < cap) & (current_gt > 1e-3) & (current_pred > 1e-3)
+        valid_gt   = current_gt[valid].clamp(1e-3, cap)
+        valid_pred = current_pred[valid].clamp(1e-3, cap)
+
+        thresh = torch.max((valid_gt / valid_pred), (valid_pred / valid_gt))
+        a1     += (thresh < 1.25).float().mean()
+        a2     += (thresh < 1.25 ** 2).float().mean()
+        a3     += (thresh < 1.25 ** 3).float().mean()
+        rmse_tot  += torch.sqrt(torch.mean((valid_gt - valid_pred) ** 2))
+        abs_diff  += torch.mean(torch.abs(valid_gt - valid_pred))
+        abs_rel   += torch.mean(torch.abs(valid_gt - valid_pred) / valid_gt)
+        log10     += torch.mean(torch.abs(torch.log10(valid_gt) - torch.log10(valid_pred)))
+
+    return [metric.item() / batch_size for metric in [abs_diff, a1, a2, a3, abs_rel, log10, rmse_tot]]
+
+
 def compute_errors_KITTI(gt_sparse, pred, crop=True, cap=80.0):
     abs_diff, abs_rel, sq_rel, a1, a2, a3, rmse_tot, rmse_log_tot = 0, 0, 0, 0, 0, 0, 0, 0
     batch_size = gt_sparse.size(0)
@@ -94,4 +124,33 @@ def compute_errors_NYU(gt, pred, crop=True):
         log10 += torch.mean(torch.abs(torch.log10(valid_gt) - torch.log10(valid_pred)))
 
     # return mae/a1/a2/a3/rel/log10/rmse/
+    return [metric.item() / batch_size for metric in [abs_diff, a1, a2, a3, abs_rel, log10, rmse_tot]]
+
+
+def compute_errors_SUN3D(gt, pred, cap=10.0):
+    """Indoor depth metrics for SUN3D (NYU-style, no fixed crop mask).
+
+    pred must already be interpolated to match gt spatial size.
+    Both tensors: (batch, 1, H, W).
+    """
+    abs_diff, abs_rel, log10, a1, a2, a3, rmse_tot = 0, 0, 0, 0, 0, 0, 0
+    batch_size = gt.size(0)
+
+    for current_gt, current_pred in zip(gt, pred):
+        current_gt   = current_gt[0]    # (H, W)
+        current_pred = current_pred[0]  # (H, W)
+
+        valid    = (current_gt < cap) & (current_gt > 1e-3) & (current_pred > 1e-3)
+        valid_gt   = current_gt[valid].clamp(1e-3, cap)
+        valid_pred = current_pred[valid].clamp(1e-3, cap)
+
+        thresh = torch.max((valid_gt / valid_pred), (valid_pred / valid_gt))
+        a1     += (thresh < 1.25).float().mean()
+        a2     += (thresh < 1.25 ** 2).float().mean()
+        a3     += (thresh < 1.25 ** 3).float().mean()
+        rmse_tot  += torch.sqrt(torch.mean((valid_gt - valid_pred) ** 2))
+        abs_diff  += torch.mean(torch.abs(valid_gt - valid_pred))
+        abs_rel   += torch.mean(torch.abs(valid_gt - valid_pred) / valid_gt)
+        log10     += torch.mean(torch.abs(torch.log10(valid_gt) - torch.log10(valid_pred)))
+
     return [metric.item() / batch_size for metric in [abs_diff, a1, a2, a3, abs_rel, log10, rmse_tot]]

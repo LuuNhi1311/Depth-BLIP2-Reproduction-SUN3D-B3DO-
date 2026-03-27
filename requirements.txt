@@ -1,9 +1,9 @@
 torch
-transformers
+transformers==4.28.1
 omegaconf
 salesforce-lavis==1.0.0
 numpy==1.23.5
 loguru
 blessings==1.7
 progressbar==2.5
-fairscale==0.4.13
+fairscale==0.4.4
