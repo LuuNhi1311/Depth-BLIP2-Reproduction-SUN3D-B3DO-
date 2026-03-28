@@ -1,81 +1,88 @@
 # ========================
-# 🔥 Logs
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.Python
+build/
+dist/
+
+# ========================
+# Virtual environments
+# ========================
+.venv*/
+venv/
+env/
+
+# # ========================
+# # Jupyter
+# # ========================
+# .ipynb_checkpoints/
+# *.ipynb_checkpoints/
+
+# ========================
+# Logs & results
 # ========================
 *.log
 logs/
+log_results/
+log_results_ab2/
 
 # ========================
-# 🔥 Build / cache
+# Datasets
 # ========================
-build/
-dist/
-*.egg-info/
-.cache/
-
-# ========================
-# 🔥 DATA (dataset)
-# ========================
-data/
 datasets/
-dataset/
-input/
-*.csv
-*.json
-*.jsonl
-*.parquet
+nyu_data/
 *.zip
 *.tar
 *.gz
 
-# ========================
-# 🔥 MODEL / WEIGHTS (RẤT QUAN TRỌNG)
-# ========================
-checkpoints/
-outputs/
-results/
-models/
-weights/
-pretrained_models/
-
-*.pt
-*.pth
-*.ckpt
-*.bin
-*.h5
-*.safetensors
+# # ========================
+# # Checkpoints & weights
+# # ========================
+# checkpoints/
+# checkpoints_ab2/
+# *.pt
+# *.pth
+# *.ckpt
+# *.bin
+# *.h5
+# *.safetensors
 
 # ========================
-# 🔥 BLIP2 / DEPTH SPECIFIC
+# Pretrained configs (large model files)
 # ========================
 config/blip2-opt-2.7b/
-depth_outputs/
-predictions/
-visualizations/
-debug/
+config/blip2-vicuna-instruct-7b/
+config/blip2_pretrained_vitL/
+config/bert-base-uncased/
 
 # ========================
-# 🔥 HuggingFace cache
+# HuggingFace / Torch cache
 # ========================
-.cache/huggingface/
-huggingface/
+.cache/
 hf_cache/
+huggingface/
 
 # ========================
-# 🔥 CUDA / Triton
+# CUDA artifacts
 # ========================
 *.cubin
 *.ptx
 *.o
 
 # ========================
-# 🔥 Temporary files
+# Temporary files
 # ========================
 *.tmp
 *.temp
 *.swp
+*.swo
 
 # ========================
-# 🔥 Secrets
+# Secrets
 # ========================
 .env
 *.key

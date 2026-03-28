@@ -16,8 +16,8 @@ python ./main.py \
   --train_file "./datasets/SUN3D/sun3d_train.csv" \
   --val_file   "./datasets/SUN3D/sun3d_val.csv" \
   --test_file  "./datasets/SUN3D/sun3d_test.csv" \
-  --train_limit 16 \
-  --val_limit 8 \
+  --train_limit -1 \
+  --val_limit -1 \
   --batch_size 2 \
   --workers 2 \
   --epochs 50 \

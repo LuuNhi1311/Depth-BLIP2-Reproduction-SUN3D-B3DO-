@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod +x /media/ssd1tb/Long/depth-blip2/scripts/*.sh)",
+      "WebFetch(domain:sun3d.cs.princeton.edu)",
+      "WebFetch(domain:sun3d.csail.mit.edu)"
+    ]
+  }
+}
